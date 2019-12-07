@@ -5,7 +5,10 @@ stages
 {  
 stage('git clone')
 {
+steps
+{
 git 'https://github.com/devinameena/maven-project.git'
+}
 }
 }
 }
