@@ -10,4 +10,7 @@ stage ('Checkout to different branch') {
 sh "git branch -r"
 sh "git checkout master"
 }
+stage('docker image build'){
+sh 'docker build -t devina0110/tom-app:1.0.0 .'
+}
 }
