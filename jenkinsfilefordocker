@@ -13,10 +13,10 @@ sh "git checkout master"
 stage('docker image build'){
 sh 'docker build -t devina0110/tom-app:1.0.0 .'
 }
-stage('push image to docker hub'){
-withCredentials([usernameColonPassword(credentialsId: 'dockerhubaccount', variable: '')]) {
-sh "docker login -u devina0110 -p ${dockerhubaccount}"
+stage ('Push Docker image to DockerHub') {
+	  withCredentials([string(credentialsId: 'dockerhubaccount', variable: '')]) {
+    sh "docker login -u devina0110 -p ${dockerhubaccount}"
 }
-  sh 'dokcer push devina0110/tom-app:1.0.0'
-}
+	   sh 'dokcer push devina0110/tom-app:1.0.0'
+     }
 }
